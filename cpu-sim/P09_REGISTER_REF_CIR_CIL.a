@@ -1,0 +1,10 @@
+; Practical 9 : Register-reference instructions CIR, CIL
+; CIR : circulate E and AC right
+; CIL : circulate E and AC left
+        LDA NUM     ; set-up: AC <- 9 = 0000 0000 0000 1001, E = 0
+        CIR         ; 7080 : AC = 4, E = 1
+        CIR         ; 7080 : AC = 32770, E = 0
+        CIL         ; 7040 : AC = 4, E = 1
+        CIL         ; 7040 : AC = 9, E = 0
+        HLT
+NUM:    .data 1 9
