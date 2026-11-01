@@ -1,0 +1,13 @@
+; Practical 6 : Memory-reference instructions ADD, LDA, STA, BUN, ISZ
+; Task : multiply X by N using repeated addition
+; X = 5, N = 3 (CTR = -3)  ->  PROD = 15
+LOOP:   LDA PROD    ; AC <- M[PROD]
+        ADD X       ; AC <- AC + M[X]
+        STA PROD    ; M[PROD] <- AC
+        ISZ CTR     ; M[CTR] <- M[CTR] + 1; skip next if it became 0
+        BUN LOOP    ; PC <- LOOP (repeat)
+        LDA PROD    ; AC <- final product
+        HLT
+X:      .data 1 5   ; multiplicand
+CTR:    .data 1 -3  ; -N (loop counter)
+PROD:   .data 1 0   ; product
